@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProfileRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -74,12 +75,33 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(User $user)
+    public function update(ProfileRequest $request)
     {
+        $user = Auth::user();
 
-        $user->update();
-        $user->userInfo->update();
-        $user->userPreference->update();
+        $user->update([
+            'name' => $request->name,
+            'email' => $request->email
+        ]);
+
+        $user->info()->update([
+            'occupation' => $request->occupation,
+            'bio' => $request->bio,
+            'relationship_status' => $request->relationship_status,
+            'country_of_birth' => $request->country_of_birth
+        ]);
+
+        $user->preference->update([
+            'min_price' => $request->min_price,
+            'max_price' => $request->max_price,
+            'smokers_ok' => $request->smokers_ok,
+            'pets_ok' => $request->pets_ok,
+            'min_age' => $request->min_age,
+            'max_age' => $request->max_age,
+            'preferred_gender' => $request->preferred_gender,
+            'location' => $request->location
+
+        ]);
 
         return redirect()->route('home');
     }

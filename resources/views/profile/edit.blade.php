@@ -3,7 +3,7 @@
     </h2>
 
 <div class="col-lg-8 pb-5">
-    <form class="row" method="POST" action="">
+    <form class="row" method="POST" action="{{ 'profile.update, $user' }}">
         @csrf
         @method('PUT')
 
@@ -70,6 +70,7 @@
                 <input
                     class="form-control"
                     type="text"
+                    name="bio"
                     id="bio"
                     value="{{ $userInfo->bio }}"
                     required
@@ -422,6 +423,7 @@
                 <input
                     class="form-control"
                     type="number"
+                    name="age"
                     id="age"
                     value="{{ $userInfo->age }}"
                     required
@@ -434,6 +436,7 @@
                 <input
                     class="form-control"
                     type="number"
+                    name="min_age"
                     id="age"
                     value="{{ $userPreferences->min_price }}"
                     required
@@ -447,6 +450,7 @@
                 <input
                     class="form-control"
                     type="number"
+                    name="max_price"
                     id="age"
                     value="{{ $userPreferences->max_price }}"
                     required
@@ -492,7 +496,8 @@
                 <input
                     class="form-control"
                     type="number"
-                    id="min_page"
+                    id="min_age"
+                    name="min_age"
                     value="{{ $userPreferences->min_age }}"
                     required
                 />
@@ -505,6 +510,7 @@
                 <input
                     class="form-control"
                     type="number"
+                    name="max_age"
                     id="min_page"
                     value="{{ $userPreferences->max_age }}"
                     required
