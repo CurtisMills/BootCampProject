@@ -2,6 +2,10 @@
 
 @section('content')
 
+    <div id="questions">
+        <answer-questions></answer-questions>
+    </div>
+
     <h2>Here are your macthed users:
     </h2>
     @if(count($matchedUsers) == 0)
