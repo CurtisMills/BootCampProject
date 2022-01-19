@@ -51,13 +51,15 @@ class RegisteredUserController extends Controller
             'min_age' => ['required'],
             'max_age' => ['required'],
             'preferred_gender' => ['required'],
-            'location' => ['required']
+            'location' => ['required'],
+            'mobile' => ['required']
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'mobile' => $request->mobile
         ]);
 
         event(new Registered($user));

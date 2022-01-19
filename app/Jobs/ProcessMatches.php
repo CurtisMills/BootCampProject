@@ -3,6 +3,7 @@
 namespace App\Jobs;
 
 use App\Models\User;
+use App\Services\Sms\SmsSender;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -32,9 +33,12 @@ class ProcessMatches implements ShouldQueue
      *
      * @return void
      */
-    public function handle()
+    public function handle(SmsSender $sender)
     {
-        Log::info("Finding matched users for " . $this->user->name);
-        Log::info("Matched users completed.");
+        $sender->sendSms($this->user->mobile, $this->getMessage());
+    }
+     private function getMessage()
+    {
+        return "You have are now being followed by " . $this->user->name;
     }
 }
