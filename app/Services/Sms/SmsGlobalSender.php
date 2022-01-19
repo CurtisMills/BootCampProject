@@ -11,6 +11,7 @@ class SmsGlobalSender implements SmsSender
 
     public function sendSms(string $mobile, string $message)
     {
-        Log::info('Using SmsGlobal to send SMS');
+        Log::info('Sending an SMS to mobile number: ' . $mobile);
+        Log::info($message);
     }
 }

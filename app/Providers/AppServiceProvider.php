@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Models\User;
 use App\Observers\AccountObserver;
+use App\Services\Sms\SmsGlobalSender;
+use App\Services\Sms\SmsSender;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -15,7 +17,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(SmsSender::class, SmsGlobalSender::class);
     }
 
     /**
