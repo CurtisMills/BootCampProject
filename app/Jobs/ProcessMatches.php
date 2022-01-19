@@ -39,6 +39,6 @@ class ProcessMatches implements ShouldQueue
     }
      private function getMessage()
     {
-        return "You have are now being followed by " . $this->user->name;
+        return "Welcome to housemate.com " . $this->user->name . "!"
     }
 }
