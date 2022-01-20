@@ -37,8 +37,8 @@ class ProcessMatches implements ShouldQueue
     {
         $sender->sendSms($this->user->mobile, $this->getMessage());
     }
-     private function getMessage()
+    private function getMessage()
     {
-        return "Welcome to housemate.com " . $this->user->name . "!"
+        return "Thank you " . $this->user->name . " for buying data with Trovalo";
     }
 }

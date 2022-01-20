@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Observers\AccountObserver;
 use App\Services\Sms\SmsGlobalSender;
 use App\Services\Sms\SmsSender;
+use App\Services\Sms\VoodooSmsSender;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -17,7 +18,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(SmsSender::class, SmsGlobalSender::class);
+        $this->app->bind(SmsSender::class, VoodooSmsSender::class);
     }
 
     /**

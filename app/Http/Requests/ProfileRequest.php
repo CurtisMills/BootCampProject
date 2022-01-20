@@ -37,7 +37,8 @@ class ProfileRequest extends FormRequest
             'min_age' => ['required'],
             'max_age' => ['required'],
             'preferred_gender' => ['required'],
-            'location' => ['required']
+            'location' => ['required'],
+            'mobile' => ['required']
         ];
     }
 }

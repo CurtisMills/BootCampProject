@@ -29,7 +29,7 @@
                 <x-label for="mobile" :value="__('mobile')" />
 
                 <x-input id="mobile" class="block mt-1 w-full"
-                                type="mobile"
+                                type="text"
                                 name="mobile" required />
             </div>
 
